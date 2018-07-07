@@ -35,7 +35,7 @@ total_lines=0
 for i in range(0,numc, step):
     contours = solve(func-i,y)
     for n,line in enumerate(contours):
-        print("Graphing line: y=", line, end='\r');
+        print("Graphing line: y=", str(line).replace('**','^'), end='\r');
         if contour_map is None:
             contour_map = plot(line, show=False)
             contour_map[0].label='k=%d'%i
