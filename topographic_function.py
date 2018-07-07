@@ -29,11 +29,14 @@ func = parse_expr(args.function.replace('^','**'), transformations=\
 (standard_transformations + (implicit_multiplication_application,)))
 y = Symbol('y')
 contour_map = None
-#the number of undefined answers or constant answers to the gived function
+#the number of undefined answers or constant answers to the given function
 #ex: 0/0 or y=0
 total_lines=0
 for i in range(0,numc, step):
     contours = solve(func-i,y)
+    #import pdb; pdb.set_trace()
+    if str(contours[0]).isdigit():
+        continue
     for n,line in enumerate(contours):
         print("Graphing line: y=", str(line).replace('**','^'), end='\r');
         if contour_map is None:
