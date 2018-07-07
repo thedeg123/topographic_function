@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import random
-
 def randdec():
     '''
     Returns a random number between 0 and 1
@@ -51,6 +50,10 @@ for i in range(0,numc, step):
             total_lines+=1
             contour_map[total_lines].label=''
             contour_map[total_lines].line_color=contour_map[total_lines-n].line_color
+try:
+    contour_map.legend = True
+except AttributeError:
+    print("Please ensure your function is three dimensional")
+    exit()
 print("\nDone")
-contour_map.legend = True
 contour_map.show()
